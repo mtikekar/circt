@@ -566,6 +566,12 @@ public:
     auto name = label ? label.strref() : "";
     // Message is not optional, so provide empty string if not present.
     auto message = format ? format : rewriter.getStringAttr("");
+    // StringAttr message;
+    // SmallVector<Value> substitutions;
+
+    // circt::firrtl::parseFormatString(rewriter, gi.op.getLoc(), rawMessage,
+    //                                  rawSubstitutions, message,
+    //                                  substitutions);
     auto op = rewriter.template replaceOpWithNewOp<OpTy>(
         gi.op, clock, predicate, enable, message, substitutions, name,
         /*isConcurrent=*/true);
